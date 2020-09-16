@@ -1,0 +1,6 @@
+{
+	"hooks": {
+		"pre-commit": "lint-staged && tsc",
+		"pre-push": "npm test -- --coverage"
+	}
+}

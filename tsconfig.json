@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "ES2015",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"lib": ["ES2020", "DOM"],
+		"outDir": "dist",
+		"noEmit": true,
+		"declaration": false,
+		"skipLibCheck": false,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "react",
+		"experimentalDecorators": true,
+		"sourceMap": true,
+		"typeRoots": ["./node_modules/@types", "./typings"]
+	},
+	"include": ["./src/**/*"]
+}

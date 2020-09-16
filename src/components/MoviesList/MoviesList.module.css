@@ -1,0 +1,18 @@
+.movies-list {
+	display: grid;
+	grid-template-areas: "..";
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(5, 2fr);
+	gap: 5px;
+	margin: 0;
+	padding: 0 10px;
+}
+
+@media screen and (min-width: 768px) {
+	.movies-list {
+		grid-template-areas: ".....";
+		grid-template-columns: repeat(5, 1fr);
+		gap: 10px;
+		padding: 0 20px;
+	}
+}

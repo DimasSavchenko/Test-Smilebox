@@ -1,0 +1,17 @@
+.loader {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	min-height: 60px;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.loader__progress {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
