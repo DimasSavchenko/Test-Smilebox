@@ -5,52 +5,38 @@
 }
 
 .movie-details__section {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	grid-gap: 40px;
+	grid-template-columns: auto;
+	justify-items: center;
 }
 
 .movie-details__poster {
 	height: 300px;
-	margin-right: 0;
-	margin-bottom: 20px;
 	overflow: hidden;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+.movie-details__image {
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
 	.movie-details__image {
 		width: auto;
 	}
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
 	.movie-details__section {
-		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		justify-content: space-between;
+		justify-items: flex-start;
+		grid-template-columns: 1fr 3fr;
 	}
 
 	.movie-details__poster {
 		width: 100%;
 		height: auto;
 		margin-right: 30px;
-	}
-}
-
-@media screen and (min-width: 600px) and (max-width: 767px) {
-	.movie-details__section {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
-	.movie-details__poster {
-		margin-right: 30px;
-	}
-
-	.movie-details__image {
-		width: 200px;
+		overflow: initial;
 	}
 }
 
@@ -61,10 +47,13 @@
 	width: 300px;
 	height: 445px;
 	background-color: rgba(238, 238, 238, 0.3);
+	color: #fff;
 	font-size: 32px;
 }
 
 .movie-details__info {
+	display: grid;
+	grid-gap: 20px;
 	color: #eee;
 }
 
@@ -74,15 +63,35 @@
 	text-align: center;
 }
 
-@media screen and (min-width: 600px) {
+.movie-details__plot {
+	font-size: 16px;
+}
+
+.movie-details__descr {
+	display: grid;
+	grid-column-gap: 20px;
+	grid-template-columns: 1fr 4fr;
+}
+
+.movie-details__subtitle {
+	min-width: 80px;
+	font-size: 14px;
+	font-style: italic;
+}
+
+.movie-details__text {
+	font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+	.movie-details__plot {
+		font-size: 20px;
+	}
+
 	.movie-details__title {
 		margin: 0;
 		font-size: 32px;
 		text-align: left;
-	}
-
-	.movie-details__plot {
-		font-size: 20px;
 	}
 
 	.movie-details__subtitle {
@@ -92,26 +101,4 @@
 	.movie-details__text {
 		font-size: 18px;
 	}
-}
-
-.movie-details__plot {
-	padding-bottom: 20px;
-	font-size: 16px;
-}
-
-.movie-details__descr {
-	display: flex;
-	margin-bottom: 20px;
-}
-
-.movie-details__subtitle {
-	width: 60px;
-	margin-right: 20px;
-	font-size: 14px;
-	font-style: italic;
-}
-
-.movie-details__text {
-	width: 85%;
-	font-size: 14px;
 }
