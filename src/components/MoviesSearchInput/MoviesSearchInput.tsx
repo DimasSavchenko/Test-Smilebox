@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
 import { default as bemCssModules } from 'bem-css-modules';
 import { debounce } from 'lodash';
@@ -19,26 +19,27 @@ const MoviesSearchInput = () => {
 	}: MoviesSearchStore = useMoviesSearchStore();
 
 	const [searchInput, setSearchInput]: [string, Function] = useState('');
-	const debouncedQuery = debounce(q => setSearchQuery(q), 500);
+
+	const debouncedLoadMovies = useCallback(debounce(query => loadMoviesSearchList(query), 500), []);
 
 	const inputChange = async (e: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
 		const query = e.target.value;
-		debouncedQuery(query);
 		setSearchInput(query);
+		setSearchQuery(query);
 		if (!query.length) {
 			resetSearchQuery();
 		}
 		if (query.length > MIN_QUERY_LENGTH && query.length < MAX_QUERY_LENGTH) {
-			await loadMoviesSearchList(query);
+			await debouncedLoadMovies(query);
 		}
 	};
 
 	let searchedMoviesTitle = null;
 	if (moviesList.length) {
 		searchedMoviesTitle = (
-			<h1 className={block('title')}> List of searched movies</h1>
+			<h1 className={block('title')}>List of searched movies</h1>
 		);
-	}
+	}	
 
 	return (
 		<div
